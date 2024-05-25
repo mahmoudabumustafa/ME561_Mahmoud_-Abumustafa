@@ -32,37 +32,3 @@ plt.imshow(filtered_RGB)
 plt.title('Average filter')
 plt.axis('off')  
 plt.show()
-# Applying sharpenning filter to the image
-Sharpened_image = cv2.filter2D(Gray, -1, Sharpen_Filter)
-plt.imshow(Sharpened_image, cmap='gray')
-plt.title('Sharpened image')
-plt.axis('off')  
-plt.show()
-# Sobel filtering
-sobel_x = cv2.Sobel(Gray, cv2.CV_64F, 1, 0, ksize=3)
-sobel_y = cv2.Sobel(Gray, cv2.CV_64F, 0, 1, ksize=3)
-
-# Calculate the magnitude of the gradient
-sobel_magnitude = np.sqrt(sobel_x**2 + sobel_y**2)
-plt.imshow(sobel_magnitude, cmap='gray')
-plt.title('Sobel filter ')
-plt.axis('off')  
-plt.show()
-# Two-level thresholding 
-low_threshold = 70
-high_threshold = 120
-
-edges = np.zeros_like(sobel_magnitude)
-edges[sobel_magnitude > high_threshold] = 255
-edges[(sobel_magnitude >= low_threshold) & (sobel_magnitude <= high_threshold)] = 50
-
-plt.imshow(edges, cmap='gray')
-plt.title('Thresholded Sobel Filtered Image ')
-plt.axis('off')  
-plt.show()
-# Canny Filter
-Canny_Filtered= cv2.Canny(Gray, 70, 120)
-plt.imshow(edges, cmap='gray')
-plt.title('Canny Filtered Image ')
-plt.axis('off')  
-plt.show()
