@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-#from scipy import ndimage
-#from skimage import data
 
 #import matplotlib.pyplot as plt
 image_path = r"C:\Users\mahmo\Downloads\Test2.jpg"
@@ -23,12 +21,6 @@ Sharpen_Filter = np.array([[0, 0, 0], [0, 2, 0], [0, 0, 0]])-np.array([[1, 1, 1]
 # Applying average filter to the gray image
 filtered_image = cv2.filter2D(Gray, -1, Average_Filter)
 plt.imshow(filtered_image, cmap='gray')
-plt.title('Average filter')
-plt.axis('off')  
-plt.show()
-# Applying average filter to colored image
-filtered_RGB = cv2.filter2D(RGB, -1, Average_Filter)
-plt.imshow(filtered_RGB)
 plt.title('Average filter')
 plt.axis('off')  
 plt.show()
